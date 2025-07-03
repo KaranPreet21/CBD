@@ -1,9 +1,17 @@
+/* 
+    Commit by Onkar Nath
+    updated navbar with blue gradient background 
+    Date: 2/07/2025
+*/
+
 body {
 	background: #f4f8fb;
 	font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
 }
 
 .navbar {
+	/* Added a blue gradient for visual appeal */
+	background: linear-gradient(90deg, #2563eb 0%, #1e40af 100%) !important;
 	border-radius: 0 0 20px 20px;
 	box-shadow: 0 8px 32px rgba(0,0,0,0.10);
 }
@@ -15,10 +23,10 @@ body {
 	transition: transform .12s, box-shadow .12s;
 }
 
-	.card:hover {
-		transform: scale(1.025);
-		box-shadow: 0 8px 32px rgba(0,0,0,0.16);
-	}
+.card:hover {
+	transform: scale(1.025);
+	box-shadow: 0 8px 32px rgba(0,0,0,0.16);
+}
 
 .btn, .form-control, .form-select {
 	border-radius: 0.9rem !important;
@@ -41,12 +49,17 @@ body {
 	box-shadow: 0 6px 28px rgba(0,0,0,0.11);
 }
 
-input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus, .form-select:focus {
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+.form-select:focus {
 	border-color: #2563eb;
 	box-shadow: 0 0 0 2px #a5b4fc55;
 }
 
-#student-articles, #tutor-articles, #admin-articles {
+#student-articles,
+#tutor-articles,
+#admin-articles {
 	min-height: 250px;
 }
 
