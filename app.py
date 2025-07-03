@@ -1,3 +1,6 @@
+# Edited by Gagandeep Singh on 02/07/2025
+# Task: Fixed subject filtering in /api/articles route to allow browsing by subject
+# Team: Auckland CBD, IT6037 Project
 from flask import Flask, request, jsonify, session, render_template
 from flask_cors import CORS
 import pymysql
@@ -85,8 +88,15 @@ def get_articles():
     params = []
     filters = []
     if subject:
-        filters.append("Category = %s")
-        params.append(subject)
+        # Filter by SubjectName, not Category
+        with get_db().cursor() as cursor:
+            cursor.execute("SELECT SubjectID FROM subjects WHERE SubjectName=%s", (subject,))
+            subject_row = cursor.fetchone()
+        if subject_row:
+            filters.append("SubjectID = %s")
+            params.append(subject_row["SubjectID"])
+        else:
+            return jsonify([])  # No such subject, return empty list
     if keyword:
         filters.append("Title LIKE %s")
         params.append(f"%{keyword}%")
